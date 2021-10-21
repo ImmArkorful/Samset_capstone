@@ -12,10 +12,8 @@ const login = async (username, password) => {
     if (result?.message) {
       return Promise.reject(Error(result.message));
     }
-    await window.localStorage.multiSet([
-      ["User", JSON.stringify(result.data.user)],
-      ["AccessToken", result.data.token],
-    ]);
+    await window.localStorage.setItem("User", JSON.stringify(result.data.user));
+    await window.localStorage.setItem("AccessToken", result.data.token);
     return Promise.resolve(result.data.user);
   } catch (error) {
     return Promise.reject(error);

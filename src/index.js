@@ -33,6 +33,7 @@ import SearchGrid from "./components/search-grid";
 import SearchList from "./components/search-list";
 import AddNew from "./components/add-property";
 import Login from "./components/login";
+import Signup from "./components/signup";
 import {
   AuthenticationProvider,
   LikedPropertiesProvider,
@@ -63,6 +64,7 @@ const Root = () => {
               <div>
                 <Switch>
                   <Route exact path="/" component={Login} />
+                  <Route exact path="/signup" component={Signup} />
                   <Route path="/home-v1" component={HomeV1} />
                   <Route path="/home-v2" component={HomeV2} />
                   <Route path="/home-v3" component={HomeV3} />

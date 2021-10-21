@@ -15,7 +15,6 @@ import { DashboardService } from "../services/DashboardService";
 const Home_V1 = () => {
   try {
     DashboardService.getDashboardItems().then((dashboardData) => {
-      console.log("here");
       console.log(dashboardData);
     });
   } catch (e) {

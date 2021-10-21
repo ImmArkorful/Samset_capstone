@@ -5,16 +5,15 @@ import Navbar from "./authNavbar";
 import { AuthService } from "../services";
 import { AuthenticationContext } from "../context";
 
-const Login = ({ history }) => {
+const SignUp = ({ history }) => {
   document.getElementById("preloader").style.display = "none";
   const authContext = useContext(AuthenticationContext);
 
-  const handleClick = (username, password) => {
-    AuthService.login(username, password)
+  const handleClick = (firstName, lastName, email, username, password) => {
+    AuthService.register(firstName, lastName, email, username, password)
       .then(async (user) => {
-        const h = await authContext.login(user);
-        console.log(h);
-        h && history.push("/home-v2");
+        await authContext.login(user);
+        history.push("/home-v2");
       })
       .catch((e) => console.log(e.message));
   };
@@ -26,12 +25,16 @@ const Login = ({ history }) => {
           height: "100vh",
         }}
       >
-        <Navbar text="New to Estic?" buttonText="Sign Up" />
-        <AuthForm type="sign in" buttonText="Login" handleClick={handleClick} />
+        <Navbar text="Already have an account?" buttonText="Sign In" />
+        <AuthForm
+          type="sign up"
+          buttonText="Sign Up"
+          handleClick={handleClick}
+        />
         <Footer />
       </div>
     </>
   );
 };
 
-export default Login;
+export default SignUp;

@@ -1,5 +1,5 @@
 // export const TEST_URL = "https://estic-backend.herokuapp.com";
-export const TEST_URL = "http://192.168.151.173:3000";
+export const TEST_URL = "http://192.168.242.173:3000";
 
 export const SEARCH_MIN_PRICE = 1;
 export const SEARCH_MAX_PRICE = 4000000;
