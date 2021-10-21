@@ -13,7 +13,6 @@ const Login = ({ history }) => {
     AuthService.login(username, password)
       .then(async (user) => {
         const h = await authContext.login(user);
-        console.log(h);
         h && history.push("/home-v2");
       })
       .catch((e) => console.log(e.message));
