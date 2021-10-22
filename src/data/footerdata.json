@@ -3,20 +3,20 @@
   "footertext": "Our support team will get assistance from AI-powered, making it quicker than ever to handle support requests.",
   "footerbg": "assets/img/bg/footer.png",
   "socialicon": [
-      {
-        "icon": "fa fa-facebook",
-        "url": "https://www.facebook.com/codingeek.net/"
-      },
-      {
-        "icon": "fa fa-twitter",
-        "url": "https://twitter.com/codingeeknet"
-      },
-      {
-        "icon": "fa fa-linkedin",
-        "url": "https://www.linkedin.com/company/codingeek/about/"
-      }
-    ],
-  "copyrighttext": "  © Copyright Nexus Property Made with  by <a href='https://codingeek.net/' target='_blank'><i class=\"fa fa-heart\"></i><span>Codingeek.</span></a>",
+    {
+      "icon": "fa fa-facebook facebook",
+      "url": "https://www.facebook.com/codingeek.net/"
+    },
+    {
+      "icon": "fa fa-twitter twitter",
+      "url": "https://twitter.com/codingeeknet"
+    },
+    {
+      "icon": "fa fa-linkedin linkedin",
+      "url": "https://www.linkedin.com/company/codingeek/about/"
+    }
+  ],
+  "copyrighttext": "  © Copyright Illumined - ESTIC",
   "popularserces": {
     "title": "Popular Searches",
     "links": [
@@ -43,19 +43,19 @@
     "links": [
       {
         "title": "Los Angeles Offices",
-         "url": "/property-details"
+        "url": "/property-details"
       },
       {
         "title": "Las Vegas Apartment",
-         "url": "/property-details"
+        "url": "/property-details"
       },
       {
         "title": "Sacramento Townhome",
-         "url": "/property-details"
+        "url": "/property-details"
       },
       {
         "title": "San Francisco Offices",
-         "url": "/property-details"
+        "url": "/property-details"
       }
     ]
   },
@@ -80,6 +80,4 @@
       }
     ]
   }
-
-
 }
