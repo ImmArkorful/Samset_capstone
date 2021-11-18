@@ -157,20 +157,20 @@ const AuthForm = ({ history, type, buttonText, handleClick }) => {
               placeholder="********"
             />
           </div>
-          <div className="d-flex justify-content-center">
-            <button
-              className="d-flex btn btn-yellow w-25 justify-content-center"
-              onClick={(e) => {
-                e.preventDefault();
-                type === "sign up"
-                  ? handleClick(firstName, lastName, email, userName, password)
-                  : handleClick(userName, password);
-              }}
-            >
-              {buttonText}
-            </button>
-          </div>
         </form>
+        <div className="d-flex justify-content-center">
+          <button
+            className="d-flex btn btn-yellow w-25 justify-content-center"
+            onClick={(e) => {
+              // e.preventDefault();
+              type === "sign up"
+                ? handleClick(firstName, lastName, email, userName, password)
+                : handleClick(userName, password);
+            }}
+          >
+            {buttonText}
+          </button>
+        </div>
       </div>
     </div>
   );

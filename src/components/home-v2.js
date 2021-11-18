@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Navbar from "./global-components/navbar";
 import Bannerv2 from "./section-components/banner-v2";
 import Explore from "./section-components/explore";
@@ -11,29 +11,44 @@ import WhyChooseUs from "./section-components/why-choose-us";
 import OurPartner from "./section-components/our-partner";
 import Footer from "./global-components/footer";
 import { DashboardService } from "../services/DashboardService";
+import { AuthenticationContext } from "../context";
+import Loader from "./global-components/loader";
 
 const Home_V1 = () => {
-  try {
-    DashboardService.getDashboardItems().then((dashboardData) => {
-      //Dashboard items
+  const [showLoader, setShowLoader] = useState(true);
+  const [dashboardData, setDashboardData] = useState(true);
+  useEffect(() => {
+    DashboardService.getDashboardItems().then((data) => {
+      setDashboardData(data);
+      setShowLoader(false);
     });
-  } catch (e) {
-    console.log(e);
-  }
+    // document.getElementById("preloader").fadeOut = 5000;
+  }, []);
+
+  useEffect(() => {
+    console.log(dashboardData);
+  }, [dashboardData]);
+
   return (
-    <div>
-      <Navbar />
-      <Bannerv2 />
-      <Explore />
-      <FeaturedProperties />
-      <Ads />
-      <PropertiesByCities />
-      <RecentProperties />
-      <FeaturedPorject />
-      <WhyChooseUs />
-      <OurPartner />
-      <Footer />
-    </div>
+    <>
+      {showLoader ? (
+        <Loader />
+      ) : (
+        <div>
+          <Navbar />
+          <Bannerv2 headers={dashboardData.headerImages} />
+          <Explore />
+          <FeaturedProperties />
+          <Ads />
+          <PropertiesByCities cities={dashboardData.topSearchCities} />
+          <RecentProperties />
+          <FeaturedPorject />
+          <WhyChooseUs />
+          <OurPartner />
+          <Footer />
+        </div>
+      )}
+    </>
   );
 };
 

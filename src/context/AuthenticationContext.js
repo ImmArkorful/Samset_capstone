@@ -1,15 +1,18 @@
 import axios from "axios";
 import React, { useState, Children, useEffect } from "react";
+import { DashboardService } from "../services";
 
 export const AuthenticationContext = React.createContext({
   isLoggedIn: false,
   user: null,
   login: (_) => null,
   logout: () => null,
+  dashboardData: null,
 });
 
 export const AuthenticationProvider = (props) => {
   const [user, setUser] = useState();
+  const [dashboardData, setDashboardData] = useState();
 
   const login = async (user) => {
     axios.defaults.headers["Authorization"] =
@@ -31,7 +34,7 @@ export const AuthenticationProvider = (props) => {
 
   return (
     <AuthenticationContext.Provider
-      value={{ login, logout, user, isLoggedIn: !!user }}
+      value={{ login, logout, user, isLoggedIn: !!user, dashboardData }}
     >
       {Children.only(props.children)}
     </AuthenticationContext.Provider>

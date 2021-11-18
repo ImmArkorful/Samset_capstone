@@ -2512,6 +2512,10 @@ ul {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.new-banner {
+  margin-top: -900px;
+}
 .banner-area .banner-search-wrap {
   margin-top: 24px;
 }
