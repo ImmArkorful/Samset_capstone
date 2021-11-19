@@ -5,10 +5,10 @@ const AuthNavbar = ({ history, text, buttonText }) => {
   const to = buttonText === "Sign Up" ? "/signup" : "/";
   let publicUrl = process.env.PUBLIC_URL + "/";
   return (
-    <div className="container custom-navbar mt-2">
-        <Link to="/" className="custom-actual-link">
-          <img src={publicUrl + "/assets/img/logo.png"} alt="logo" />
-        </Link>
+    <div className="container custom-navbar pt-2" style={{ height: "5vh" }}>
+      <Link to="/" className="custom-actual-link">
+        <img src={publicUrl + "/assets/img/logo.png"} alt="logo" />
+      </Link>
       <div className="custom-navbar-options">
         <p className="font-weight-bold text-dark mr-3">{text}</p>
         <Link className="btn btn-yellow" to={to}>

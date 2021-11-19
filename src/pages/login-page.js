@@ -1,30 +1,31 @@
 import React, { useContext } from "react";
-import AuthForm from "./authForm";
-import Footer from "./authFooter";
-import Navbar from "./authNavbar";
+import AuthForm from "../components/auth-components/authForm";
+import Footer from "../components/auth-components/authFooter";
+import Navbar from "../components/auth-components/authNavbar";
 import { AuthService } from "../services";
 import { AuthenticationContext } from "../context";
+import useError from "../hooks/useError";
 
 const Login = ({ history }) => {
-  document.getElementById("preloader").style.display = "none";
   const authContext = useContext(AuthenticationContext);
+  const { setError } = useError();
 
-  const handleClick = (username, password) => {
+  const handleClick = ({ username, password }) => {
     AuthService.login(username, password)
       .then(async (user) => {
+        console.log(user);
         const h = await authContext.login(user);
         h && history.push("/home-v2");
       })
-      .catch((e) => console.log(e.message));
+      .catch((e) => {
+        console.log(e.message);
+        setError(e.message);
+      });
   };
 
   return (
     <>
-      <div
-        style={{
-          height: "100vh",
-        }}
-      >
+      <div>
         <Navbar text="New to Estic?" buttonText="Sign Up" />
         <AuthForm type="sign in" buttonText="Login" handleClick={handleClick} />
         <Footer />

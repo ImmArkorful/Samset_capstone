@@ -22,7 +22,8 @@ export const AuthenticationProvider = (props) => {
   };
 
   const logout = async () => {
-    await window.localStorage.multiRemove(["AccessToken", "User"]);
+    await window.localStorage.removeItem("User");
+    await window.localStorage.removeItem("AccessToken");
     axios.defaults.headers["Authorization"] = null;
     setUser(null);
     return Promise.resolve(true);

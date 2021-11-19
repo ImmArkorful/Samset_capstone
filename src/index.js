@@ -23,7 +23,7 @@ import Advisor from "./components/advisor";
 import Pricing from "./components/pricing";
 import UserList from "./components/user-list";
 import Registraion from "./components/registration";
-import Error from "./components/error";
+import Error from "./pages/error-page";
 import Faq from "./components/faq";
 import News from "./components/news";
 import NewsDetails from "./components/news-details";
@@ -32,12 +32,14 @@ import SearchMap from "./components/search-map";
 import SearchGrid from "./components/search-grid";
 import SearchList from "./components/search-list";
 import AddNew from "./components/add-property";
-import Login from "./components/login";
-import Signup from "./components/signup";
+import Login from "./pages/login-page";
+import Signup from "./pages/signup-page";
+import ErrorMessage from "./components/error-message-card";
 import {
   AuthenticationProvider,
   LikedPropertiesProvider,
   MessageProvider,
+  ErrorProvider,
 } from "./context";
 
 const Root = () => {
@@ -56,54 +58,60 @@ const Root = () => {
     getLocalItems();
   }, []);
   return (
-    <AuthenticationProvider user={user}>
-      <LikedPropertiesProvider>
-        <MessageProvider>
-          <Router>
-            <HashRouter basename="/">
-              <div>
-                <Switch>
-                  <Route exact path="/" component={Login} />
-                  <Route exact path="/signup" component={Signup} />
-                  <Route path="/home-v1" component={HomeV1} />
-                  <Route path="/home-v2" component={HomeV2} />
-                  <Route path="/home-v3" component={HomeV3} />
-                  <Route path="/home-v4" component={HomeV4} />
-                  <Route path="/property" component={Property} />
-                  <Route
-                    path="/availavbe-property"
-                    component={AvilableProperty}
-                  />
-                  <Route
-                    path="/properties-by-city"
-                    component={PropertiesByCity}
-                  />
-                  <Route
-                    path="/recent-properties"
-                    component={RecentProperties}
-                  />
-                  <Route path="/property-details" component={PropertyDetails} />
-                  <Route path="/about" component={About} />
-                  <Route path="/advisor" component={Advisor} />
-                  <Route path="/pricing" component={Pricing} />
-                  <Route path="/user-list" component={UserList} />
-                  <Route path="/registration" component={Registraion} />
-                  <Route path="/error" component={Error} />
-                  <Route path="/faq" component={Faq} />
-                  <Route path="/news" component={News} />
-                  <Route path="/news-details" component={NewsDetails} />
-                  <Route path="/contact" component={Contact} />
-                  <Route path="/search-map" component={SearchMap} />
-                  <Route path="/search-grid" component={SearchGrid} />
-                  <Route path="/search-list" component={SearchList} />
-                  <Route path="/add-property" component={AddNew} />
-                </Switch>
-              </div>
-            </HashRouter>
-          </Router>
-        </MessageProvider>
-      </LikedPropertiesProvider>
-    </AuthenticationProvider>
+    <ErrorProvider>
+      <AuthenticationProvider user={user}>
+        <LikedPropertiesProvider>
+          <MessageProvider>
+            <Router>
+              <HashRouter basename="/">
+                <ErrorMessage />
+                <div>
+                  <Switch>
+                    <Route exact path="/" component={Login} />
+                    <Route exact path="/signup" component={Signup} />
+                    <Route path="/home-v1" component={HomeV1} />
+                    <Route path="/home-v2" component={HomeV2} />
+                    <Route path="/home-v3" component={HomeV3} />
+                    <Route path="/home-v4" component={HomeV4} />
+                    <Route path="/property" component={Property} />
+                    <Route
+                      path="/availavbe-property"
+                      component={AvilableProperty}
+                    />
+                    <Route
+                      path="/properties-by-city"
+                      component={PropertiesByCity}
+                    />
+                    <Route
+                      path="/recent-properties"
+                      component={RecentProperties}
+                    />
+                    <Route
+                      path="/property-details"
+                      component={PropertyDetails}
+                    />
+                    <Route path="/about" component={About} />
+                    <Route path="/advisor" component={Advisor} />
+                    <Route path="/pricing" component={Pricing} />
+                    <Route path="/user-list" component={UserList} />
+                    <Route path="/registration" component={Registraion} />
+                    <Route path="/error" component={Error} />
+                    <Route path="/faq" component={Faq} />
+                    <Route path="/news" component={News} />
+                    <Route path="/news-details" component={NewsDetails} />
+                    <Route path="/contact" component={Contact} />
+                    <Route path="/search-map" component={SearchMap} />
+                    <Route path="/search-grid" component={SearchGrid} />
+                    <Route path="/search-list" component={SearchList} />
+                    <Route path="/add-property" component={AddNew} />
+                  </Switch>
+                </div>
+              </HashRouter>
+            </Router>
+          </MessageProvider>
+        </LikedPropertiesProvider>
+      </AuthenticationProvider>
+    </ErrorProvider>
   );
 };
 export default Root;

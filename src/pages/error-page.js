@@ -1,5 +1,5 @@
 import React from 'react';
-import Errorpage from './section-components/error';
+import Errorpage from '../components/section-components/error';
 
 const Error = () => {
     return <div>

@@ -3,6 +3,7 @@ import axios from "axios";
 import { TEST_URL } from "../constants/ApplicationConstants";
 
 const login = async (username, password) => {
+  console.log(username, password);
   try {
     const response = await axios.post(TEST_URL + "/users/login", {
       username,
@@ -29,12 +30,13 @@ const register = async (firstName, lastName, email, username, password) => {
       username,
       password,
     });
+    console.log('response', response)
     const result = response.data;
     if (result?.data?.error) {
       return Promise.reject(Error(result.data.error.message));
     }
-    const user = await login(username, password);
-    return Promise.resolve(user);
+    console.log("response", response.data.data.user);
+    return Promise.resolve(response.data.data.user);
   } catch (error) {
     return Promise.reject(error);
   }

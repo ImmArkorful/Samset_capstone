@@ -1,5 +1,5 @@
 import React from "react";
-import footerdata from "../data/footerdata.json";
+import footerdata from "../../data/footerdata.json";
 
 const LoginFooter = () => {
   let publicUrl = process.env.PUBLIC_URL + "/";
