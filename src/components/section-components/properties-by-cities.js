@@ -3,6 +3,7 @@ import sectiondata from "../../data/sections.json";
 import parse from "html-react-parser";
 import { Link } from "react-router-dom";
 const PropertiesByCities = ({ cities }) => {
+  console.log("sss", cities);
   let publicUrl = process.env.PUBLIC_URL + "/";
   let imagealt = "image";
   let data = sectiondata.propertiesbycities;
@@ -32,7 +33,7 @@ const PropertiesByCities = ({ cities }) => {
                   </div>
                   <div className="details">
                     <h5 className="title">
-                      <Link to={'/home-v2'}>{item.name}</Link>
+                      <Link to={"/home-v2"}>{item.name}</Link>
                     </h5>
                     <p>{item.content}</p>
                   </div>

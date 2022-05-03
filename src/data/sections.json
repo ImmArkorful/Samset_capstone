@@ -103,7 +103,7 @@
         {
           "title": "Vegas Landville Apartment",
           "image": "assets/img/feature/2.png",
-          "icon":"assets/img/icons/l1.png",
+          "icon":"0",
          "url": "/property-details",
           "olderprice": "$790/mo",
           "newerprice": "$350/mo",

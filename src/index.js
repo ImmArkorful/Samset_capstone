@@ -10,7 +10,7 @@ import axios from "axios";
 import blogdata from "./data/blogdata.json";
 import Singleblogdata from "./data/single-blogdata.json";
 import HomeV1 from "./components/home-v1";
-import HomeV2 from "./components/home-v2";
+import HomeV2 from "./pages/home-page";
 import HomeV3 from "./components/home-v3";
 import HomeV4 from "./components/home-v4";
 import Property from "./components/property";
@@ -67,10 +67,10 @@ const Root = () => {
                 <ErrorMessage />
                 <div>
                   <Switch>
-                    <Route exact path="/" component={Login} />
-                    <Route exact path="/signup" component={Signup} />
+                    {/* <Route exact path="/" component={Login} />
+                    <Route exact path="/signup" component={Signup} /> */}
                     <Route path="/home-v1" component={HomeV1} />
-                    <Route path="/home-v2" component={HomeV2} />
+                    <Route exact path="/" component={HomeV2} />
                     <Route path="/home-v3" component={HomeV3} />
                     <Route path="/home-v4" component={HomeV4} />
                     <Route path="/property" component={Property} />
